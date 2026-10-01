@@ -6,6 +6,9 @@
 #include "BorisCharacterBase.h"
 #include "BorisPlayerCharacter.generated.h"
 
+class USpringArmComponent;
+class UCameraComponent;
+
 UCLASS()
 class BORIS_API ABorisPlayerCharacter : public ABorisCharacterBase
 {
@@ -13,4 +16,11 @@ class BORIS_API ABorisPlayerCharacter : public ABorisCharacterBase
 	
 public:
 	ABorisPlayerCharacter();
+	
+protected:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Boris|Camera")
+	TObjectPtr<USpringArmComponent> CameraBoom;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Boris|Camera")
+	TObjectPtr<UCameraComponent> FollowCamera;
 };
